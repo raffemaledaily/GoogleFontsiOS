@@ -25,10 +25,17 @@ let package = Package(
             ],
             publicHeadersPath: "Include",
             cSettings: [
-                .headerSearchPath("Roboto"),
-                .headerSearchPath("Poppins"),
-                .headerSearchPath("Loader"),
+                // Search from the target root (Pod) so includes like "Classes/Poppins/..." resolve
+                .headerSearchPath("."),
+                // Explicitly include the Classes tree and its subfolders
+                .headerSearchPath("Classes"),
+                .headerSearchPath("Classes/Roboto"),
+                .headerSearchPath("Classes/Poppins"),
+                .headerSearchPath("Classes/Loader"),
+                // Include public headers directory
+                .headerSearchPath("Include")
             ]
         ),
     ]
 )
+
