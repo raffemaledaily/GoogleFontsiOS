@@ -25,6 +25,7 @@ let package = Package(
             ],
             publicHeadersPath: "Include",
             cSettings: [
+                .headerSearchPath(".."),
                 // Search from the target root (Pod) so includes like "Classes/Poppins/..." resolve
                 .headerSearchPath("."),
                 // Explicitly include the Classes tree and its subfolders
