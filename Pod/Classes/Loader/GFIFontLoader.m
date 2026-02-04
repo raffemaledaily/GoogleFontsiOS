@@ -17,7 +17,7 @@
 @implementation GFIFontLoader
 + (void)loadFontFile:(NSString *)fontFileName fromBundle:(NSString *)bundleName {
     NSURL *bundleURL = [[NSBundle bundleForClass:[self class]] URLForResource:bundleName withExtension:@"bundle"];
-    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
+    NSBundle *bundle = bundleURL ? [NSBundle bundleWithURL:bundleURL] : [NSBundle bundleForClass:[self class]];
     
     NSURL *fontURL = [bundle URLForResource:fontFileName withExtension:@"ttf"];
     NSData *fontData = [NSData dataWithContentsOfURL:fontURL];
